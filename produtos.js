@@ -103,15 +103,15 @@ export let produtos = [
 
 //console.table(produtos); 
 //push (acrescenta)
-produtos.push({id: 101,nome:"Água de coco", preco_venda: 1.59, preco_compra: .80, estoque: 500, rotatividade: "alta", curva_abc: "B"}),
+//produtos.push({id: 101,nome:"Água de coco", preco_venda: 1.59, preco_compra: .80, estoque: 500, rotatividade: "alta", curva_abc: "B"}),
 
 
-console.table(produtos);
+//console.table(produtos);
 //pop exclui o ultimo indice
-produtos.pop();
+//produtos.pop();
 //splice exclui a lista (13 é a linha e 1 a quantidade de linha)
-produtos.splice(13, 1);
-console.table(produtos);
+//produtos.splice(13, 1);
+//console.table(produtos);
 //map cria uma nova array sem modificar a array original
 let nomes = produtos.map(produto => produto.nome);
 console.log(nomes);

@@ -1,5 +1,4 @@
  import { produtos } from "./produtos.js";
-console.table(produtos);
 /* ****************************** INSTRUÇÕES ******************************* 
 
 1- Importe o array de produtos do arquivo "produtos.js" para o arquivo "exercicios.js" para realizar as operações necessárias. 
@@ -30,13 +29,36 @@ Data da entrega: até 19/03/2026 */
 
 // ******************************** EXERCÍCIOS *******************************
 
-// 1- Crie uma função que liste todos os produtos em estoque.
+// 1- Crie uma função que liste todos id's e nomes dos produtos em estoque.
 
+function listarIDsENomes() {
+let listarProdutos = produtos.map(produto => ({ id: produto.id, nome: produto.nome }));
+return listarProdutos;
+
+}
+console.table(listarIDsENomes());
 // 2- Crie uma função que liste todos os produtos em estoque, de acordo com a curva ABC (A, B ou C) selecionada pelo usuário.
+
+function listarProdutosPorCurvaABC(curva) {
+    let produtoCurva =  produtos.filter(produto => produto.curva_abc === curva.toUpperCase());
+    return produtoCurva;
+}
+console.table(listarProdutosPorCurvaABC("b"));
 
 // 3- Crie uma função que liste todos os produtos em estoque, de acordo com a rotatividade selecionada pelo usuário.
 
+function listarProdutosPorRotatividade(rotatividade) {
+    let produtoRotatividade = produtos.filter(produto => produto.rotatividade === rotatividade.toLowerCase());
+    return produtoRotatividade;
+}
+console.table(listarProdutosPorRotatividade("baixa"));
+
 // 4- Crie uma função que liste todos os produtos com base na seleção de rotatividade (alta, média ou baixa) e curva ABC (A, B ou C) pelo usuário.
+function listarProdutosPorRotatividadeECurva(rotatividade, curva) {
+    let produtoRotatividadeECurva = produtos.filter(produto => produto.rotatividade === rotatividade.toLowerCase() && produto.curva_abc === curva.toUpperCase());
+    return produtoRotatividadeECurva;
+}
+console.table(listarProdutosPorRotatividadeECurva("alta", "a"));
 
 // 5- Crie uma função que identifique quais produtos precisam ser repostos com base nos critérios de rotatividade e curva ABC mencionados acima.
 
@@ -49,3 +71,5 @@ Data da entrega: até 19/03/2026 */
 // 9- Crie uma função que permita ao usuário remover um produto do estoque, solicitando o id a ser removido.
 
 // 10- Crie uma função que permita ao usuário atualizar as informações de um produto existente no estoque, solicitando o id do produto e as novas informações a serem atualizadas.
+
+
