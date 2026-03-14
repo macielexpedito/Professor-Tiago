@@ -98,6 +98,12 @@ adicionarNovoProduto({id: produtos.length,
     curva_abc: "A"});
 
 // 9- Crie uma função que permita ao usuário remover um produto do estoque, solicitando o id a ser removido.
+function deletarProduto(id) {
+    let produtoBuscado = produtos.find(produto) => produto.id === id);
+    return produtoBuscado;
+}
+console.table(deletarProduto(48));
+
 
 // 10- Crie uma função que permita ao usuário atualizar as informações de um produto existente no estoque, solicitando o id do produto e as novas informações a serem atualizadas.
 
