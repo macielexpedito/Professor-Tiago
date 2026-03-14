@@ -30,15 +30,14 @@ Data da entrega: até 19/03/2026 */
 // ******************************** EXERCÍCIOS *******************************
 
 // 1- Crie uma função que liste todos id's e nomes dos produtos em estoque.
-
 function listarIDsENomes() {
 let listarProdutos = produtos.map(produto => ({ id: produto.id, nome: produto.nome }));
 return listarProdutos;
 
 }
 console.table(listarIDsENomes());
-// 2- Crie uma função que liste todos os produtos em estoque, de acordo com a curva ABC (A, B ou C) selecionada pelo usuário.
 
+// 2- Crie uma função que liste todos os produtos em estoque, de acordo com a curva ABC (A, B ou C) selecionada pelo usuário.
 function listarProdutosPorCurvaABC(curva) {
     let produtoCurva =  produtos.filter(produto => produto.curva_abc === curva.toUpperCase());
     return produtoCurva;
@@ -55,18 +54,48 @@ console.table(listarProdutosPorRotatividade("baixa"));
 
 // 4- Crie uma função que liste todos os produtos com base na seleção de rotatividade (alta, média ou baixa) e curva ABC (A, B ou C) pelo usuário.
 function listarProdutosPorRotatividadeECurva(rotatividade, curva) {
-    let produtoRotatividadeECurva = produtos.filter(produto => produto.rotatividade === rotatividade.toLowerCase() && produto.curva_abc === curva.toUpperCase());
-    return produtoRotatividadeECurva;
+    let selecaoProdutos = produtos.filter(produto => produto.rotatividade === rotatividade.toLowerCase() && produto.curva_abc === curva.toUpperCase());
+    return selecaoProdutos;
 }
-console.table(listarProdutosPorRotatividadeECurva("alta", "a"));
+console.table(listarProdutosPorRotatividadeECurva("baixa", "a"));
 
 // 5- Crie uma função que identifique quais produtos precisam ser repostos com base nos critérios de rotatividade e curva ABC mencionados acima.
 
-// 6- Crie uma função que calcule o valor total do estoque, considerando o preço de compra e a quantidade em estoque de cada produto.
+
+// 6- FEITO - Crie uma função que calcule o valor total do estoque, considerando o preço de compra e a quantidade em estoque de cada produto.
 
 // 7- Crie uma função que aplique um desconto de 10% no preço de venda de todos os produtos de baixa rotatividade e curva C e exiba a nova lista de produtos com os preços atualizados.
+function descontoVenda() {
+    let selecaoProdutos = produtos
+    .filter((produto) => produto.rotatividade === "baixa" && produto.curva_abc === "C")
+    .map((produto) => ({...produto,
+        desconto: produto.preco_venda * 0.9 // Aplica um desconto de 10%
+    }));
+    return selecaoProdutos;
+}
+console.table(descontoVenda());
 
 // 8- Crie uma função que permita ao usuário adicionar um novo produto ao estoque, solicitando as informações necessárias (nome, preço de compra, preço de venda, quantidade em estoque, rotatividade e curva ABC).
+function adicionarNovoProduto(novoProduto) {
+    produtos.push(novoProduto);
+    console.log("Cadastro concluido com sucesso!");
+    console.table(produtos);
+}
+adicionarNovoProduto({id: produtos.length,
+    nome: "Papel Toalha",
+    preco_venda: 8.50,
+    preco_compra: 5.00,
+    estoque: 35, 
+    rotatividade: "média", 
+    curva_abc: "C"});
+    
+adicionarNovoProduto({id: produtos.length,
+    nome: "Sabonete",
+    preco_venda: 27.00,
+    preco_compra: 8.00,
+    estoque: 125, 
+    rotatividade: "alta", 
+    curva_abc: "A"});
 
 // 9- Crie uma função que permita ao usuário remover um produto do estoque, solicitando o id a ser removido.
 
