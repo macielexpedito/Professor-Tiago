@@ -1,0 +1,19 @@
+button:hover {
+    cursor: pointer;
+}
+
+#container {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+#containerExercicio {
+    width: auto;
+    height: 30px;
+    border: 1px solid black;
+}

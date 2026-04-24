@@ -1,0 +1,15 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: burlywood;
+}
+#btn {
+    font-size: medium;
+    background-color: blue;
+    color: white;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+}
