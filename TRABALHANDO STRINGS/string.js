@@ -32,9 +32,15 @@ let nomeArquivo = "relatorio_2026.xls";
 
 let arquivoRecebido = nomeArquivo.includes(".xls");
 console.log(arquivoRecebido);
-*/
+
 
 let frase = "O Linux manda!";
 let palavras = frase.split(" ");
 console.log(palavras);
+*/
 
+let url = "http://www.google.com";
+console.log(url.length);
+
+let dominio = url.slice(11, 22);
+console.log(dominio);
