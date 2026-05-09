@@ -1,3 +1,11 @@
 .botao-dinamico {
-    background-color: rgb(43, 43, 47);
+    background-color: blue;
+}
+div {
+    width: 100px;
+    height: 100px;
+    background-color: orange;
+}
+.ocultar-elemento {
+    display: none;
 }

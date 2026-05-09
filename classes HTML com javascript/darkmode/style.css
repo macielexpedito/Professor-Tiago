@@ -1,0 +1,40 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    }
+    li {
+    list-style: none;
+    }
+    img {
+    display: block;
+    max-width: 100%;
+    }
+
+body {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100dvh;
+    width: 100dvw;
+    transition: 500ms;
+}
+button {
+    margin-top: 20px;
+    padding: 5px;
+    border-radius: 10px;
+    transition: 300ms;
+}    
+button:hover {    
+    cursor: pointer;
+    transition: 300ms;
+    color: rgb(13, 13, 13);
+    background-color: rgb(240, 240, 240);
+
+}
+.dark-mode {
+    background-color: rgb(13, 13, 13);
+    color: rgb(240, 240, 240);
+}
