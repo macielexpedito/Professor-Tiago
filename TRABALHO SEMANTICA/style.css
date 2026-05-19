@@ -46,25 +46,24 @@ main {
     font-size: large;
     flex-grow: 6;
 }
-main > div > article {
+main > div > p {
     background-color: rgb(129, 127, 127);
     display: flex;
     text-align: center;
     justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: 135px;
+    margin-bottom: 120px;
     width: 300px;
     
 }
 main > div > button {
-    justify-content: space-between;
-    gap: 0 60px;
+    margin-right: 150px;
 
 }
 main > img {
     display: flex;
-    padding: 300px;
-    height: 50px;
+    width: 600px;
+    height: 600px;
     background-color: rgb(129, 127, 127);
     justify-content: space-between;
 }
