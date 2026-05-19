@@ -23,7 +23,16 @@ async function buscarPersonagem() {
         try { /* Tenta buscar os personagens na API */
 
             let resposta; /* Variável para armazenar a resposta da API */
-            
+
+            if(isNaN(valor)) { /* Verifica se o valor é um número ou não */ 
+                resposta = await fetch(url1 + valor); /* Se for um número, busca pelo ID do personagem */
+
+                const dados = await resposta.json(); /* Converte a resposta para JSON */
+                personagens = [dados]; /* Armazena o personagem encontrado no array */
+            }
+
+
+
     
     
 
