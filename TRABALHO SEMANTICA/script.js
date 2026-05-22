@@ -64,12 +64,12 @@ function mostrar() {
 
 
 avancar.addEventListener('click', () => {
-    // Evita o erro se a lista de personagens estiver vazia
+    
     if (personagens.length === 0) return; 
 
     indice++;
 
-    // Se passar do último, volta para o primeiro
+   
     if (indice >= personagens.length) {
         indice = 0;
     }
@@ -77,14 +77,14 @@ avancar.addEventListener('click', () => {
     mostrar();
 });
 
-// Evento para voltar o personagem
+
 voltar.addEventListener('click', () => {
-    // Evita o erro se a lista de personagens estiver vazia
+   
     if (personagens.length === 0) return; 
 
     indice--;
 
-    // Se for menor que zero, vai para o último personagem da lista
+    
     if (indice < 0) {
         indice = personagens.length - 1;
     }
