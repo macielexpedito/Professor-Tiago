@@ -10,7 +10,7 @@ body {
 header {
     display: flex;
     justify-content: space-between;
-    background-color: blue;
+    background-color: #121212;
     flex-grow: 1;
     align-items: center;
 
@@ -22,6 +22,7 @@ header >h1 {
     margin-left: 20px;
     border-radius: 5px;
     border: 1px solid black;
+    font-family: ;
 
 }
 header > div {    
@@ -32,23 +33,26 @@ header > div > button {
     margin-left: 10px;
     padding: 5px;
     height: 40px;
-    background-color: #97ce4c;
+    background-color: #39FF14;
     border-radius: 5px;
-    border: 1px solid black;
+    box-shadow: green 2px 2px 5px; 
+    border: none;
+
 }   
 section {
     display: flex;
     justify-content: center;
     flex-grow: 3;
     align-items: center; 
-    background-color: white;   
+    background-color: #2C2C2C;   
 }
 section > h2 {
     padding: 10px;
     width: 300px;
     height: 40px;
-    background-color: #f0e14a;
+    background-color: #7a7979;
     border-radius: 5px;
+    color: #39FF14;
 
 }
 
@@ -58,30 +62,43 @@ main {
     gap: 20px;
     font-size: large;
     flex-grow: 6;
+    background-color: white;
+    margin-top: 20px;
 
 }
 main > div > p {
-    background-color: #f0e14a;
+    background-color: #7a7979;
     display: flex;
     text-align: center;
     justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: 120px;
+    margin-bottom: 105px;
     width: 300px;
+    height: 40px;
     border-radius: 5px;
+    color: #39FF14;
     
 }
 main > div > button {
     margin-right: 150px;
-    background-color: #97ce4c;
-    border-radius: 5px;
+    background-color: #39FF14;
+    border-radius: 5px; 
+    height: 50px;
+    width: 100px;
+    font-size: x-large;
+    box-shadow: #7a7979 2px 2px 5px; 
+    border: none;
 
 }
 main > img {
     display: flex;
-    width: 600px;
-    height: 600px;
+    padding: 25px;
+    width: 500px;
+    height: 500px;
     border: 1px solid black;
-    background-color: white;
+    background-color: #7a7979;
     justify-content: space-between;
+    border-radius: 5px;
+    box-shadow: #7a7979 2px 2px 5px;
+    margin-right: 25px;
 }
