@@ -10,60 +10,98 @@ const status = document.querySelector('.status');
 const especie = document.querySelector('.especie');
 const origem = document.querySelector('.origem');
 
-const voltar = document.querySelector('.voltar');
-const avancar = document.querySelector('.avancar');
+const botaoVoltar = document.querySelector('.voltar');
+const botaoAvancar = document.querySelector('.avancar');
 
 let personagens = [];
 let indice = 0;
+let tipoBusca = ''; 
 
 buscar.addEventListener('click', buscarPersonagem);
+botaoVoltar.addEventListener('click', voltar);
+botaoAvancar.addEventListener('click', avançar);
 
 async function buscarPersonagem() {
-
-    const valor = input.value;
+    const valor = input.value.trim();
 
     console.log('Valor digitado:', valor);
 
     try {
+        let resposta;
 
-    let resposta;
+        if (!isNaN(valor) && valor !== '') {
+            tipoBusca = 'id'; 
+            resposta = await fetch(url1 + valor);
+            const dados = await resposta.json();
+            
+            if (dados.error) {
+                alert('Personagem não encontrado. Por favor, tente novamente.');
+                return; 
+            }
 
-    if (!isNaN(valor)) {
+            personagens = [dados];
+        } else {
+            tipoBusca = 'nome'; 
+            resposta = await fetch(url2 + valor);
+            const dados = await resposta.json();
 
-        resposta = await fetch(url1 + valor);
+            if (dados.results) {
+                personagens = dados.results; 
+            } else {
+                alert('Personagem não encontrado. Por favor, tente novamente.');
+                return;   
+            }
+        }
 
-        const dados = await resposta.json();
-
-        personagens = [dados];
-
-    } else {
-
-        resposta = await fetch(url2 + valor);
-
-        const dados = await resposta.json();
-
-        personagens = dados.resultados;
+        indice = 0;
+        mostrar();
+    } catch (error) {
+        alert('Personagem não encontrado. Por favor, tente novamente.');
+        console.error('Erro ao buscar personagem:', error);
     }
-
-    indice = 0;
-
-    mostrar();
 }
-         catch (error) {
-            alert('Personagem não encontrado. Por favor, tente novamente.');
-            console.error('Erro ao buscar personagem:', error);
-    }
-}
+
 function mostrar() {
-
     const personagem = personagens[indice];
 
-    console.log(personagem)
+    console.log(personagem);
 
     nome.innerHTML = `Nome: ${personagem.name}`;
-    genero.innerHTML = `Gênero: ${personagem.gender}`;
+    genero.innerHTML = `Genero: ${personagem.gender}`;
     status.innerHTML = `Status: ${personagem.status}`;
     especie.innerHTML = `Espécie: ${personagem.species}`;
     origem.innerHTML = `Origem: ${personagem.origin.name}`;
     img.src = personagem.image;
+}
+
+async function voltar() {
+    if (tipoBusca === 'id') {
+        let idAtual = parseInt(input.value);
+        if (idAtual > 1) {
+            input.value = idAtual - 1;
+            await buscarPersonagem();
+        }
+    } else {
+        if (indice > 0) {
+            indice--;
+            mostrar();
+            console.log('voltou', indice);
+        }   
+    }
+}
+
+async function avançar() {
+    if (tipoBusca === 'id') {
+        let idAtual = parseInt(input.value);
+        if (!isNaN(idAtual)) {
+            input.value = idAtual + 1;
+            await buscarPersonagem();
+        }
+    } else {
+        if (indice < personagens.length - 1) {
+            indice++;
+            mostrar();
+            console.log('avançou', indice);
+        }   
+    }
 }
