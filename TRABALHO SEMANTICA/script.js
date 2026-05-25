@@ -24,6 +24,8 @@ async function buscarPersonagem() {
 
     console.log('Valor digitado:', valor);
 
+    try {
+
     let resposta;
 
     if (!isNaN(valor)) {
@@ -40,14 +42,18 @@ async function buscarPersonagem() {
 
         const dados = await resposta.json();
 
-        personagens = dados.results;
+        personagens = dados.resultados;
     }
 
     indice = 0;
 
     mostrar();
 }
-
+         catch (error) {
+            alert('Personagem não encontrado. Por favor, tente novamente.');
+            console.error('Erro ao buscar personagem:', error);
+    }
+}
 function mostrar() {
 
     const personagem = personagens[indice];
@@ -61,33 +67,3 @@ function mostrar() {
     origem.innerHTML = `Origem: ${personagem.origin.name}`;
     img.src = personagem.image;
 }
-
-
-avancar.addEventListener('click', () => {
-    
-    if (personagens.length === 0) return; 
-
-    indice++;
-
-   
-    if (indice >= personagens.length) {
-        indice = 0;
-    }
-
-    mostrar();
-});
-
-
-voltar.addEventListener('click', () => {
-   
-    if (personagens.length === 0) return; 
-
-    indice--;
-
-    
-    if (indice < 0) {
-        indice = personagens.length - 1;
-    }
-
-    mostrar();
-});
