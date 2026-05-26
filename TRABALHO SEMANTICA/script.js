@@ -2,20 +2,18 @@ const input = document.querySelector('input');
 const buscar = document.querySelector('header button');
 const url1 = 'https://rickandmortyapi.com/api/character/';
 const url2 = 'https://rickandmortyapi.com/api/character/?name=';
-
 const img = document.querySelector('img');
 const nome = document.querySelector('.nome');
 const genero = document.querySelector('.genero');
 const status = document.querySelector('.status');
 const especie = document.querySelector('.especie');
 const origem = document.querySelector('.origem');
-
 const botaoVoltar = document.querySelector('.voltar');
 const botaoAvancar = document.querySelector('.avancar');
 
 let personagens = [];
 let indice = 0;
-let tipoBusca = ''; 
+let tipoBusca = '';
 
 buscar.addEventListener('click', buscarPersonagem);
 botaoVoltar.addEventListener('click', voltar);
@@ -81,7 +79,9 @@ async function voltar() {
             input.value = idAtual - 1;
             await buscarPersonagem();
         }
-    } else {
+    }
+    
+    else {
         if (indice > 0) {
             indice--;
             mostrar();
